@@ -15,6 +15,7 @@ firebase.initializeApp(firebaseConfig);
 $("input[type='button']").click(function(e) {
   //get the value of form
   var inputdata = $("form").serializeArray();
+  console.log(inputdata);
   var inputJson = {};
   for (var i = 0; i < inputdata.length; i++) {
     var name = inputdata[i]["name"];
@@ -23,7 +24,7 @@ $("input[type='button']").click(function(e) {
     inputJson[name] = value;
   }
 
-  console.log(inputJson);
+  //console.log(inputJson);
   //var night = parseInt(inputJson["num"]);
   // var cost = parseInt(inputJson["room"].slice(-3));
   // console.log("The cost for this reservation is " + night * cost);
