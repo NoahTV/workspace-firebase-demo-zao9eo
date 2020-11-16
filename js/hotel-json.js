@@ -20,11 +20,11 @@ $("input[type='button']").click(function(e) {
   for (var i = 0; i < inputdata.length; i++) {
     var name = inputdata[i]["name"];
     var value = inputdata[i]["value"];
-    console.log(name + " " + value);
+    //console.log(name + " " + value);
     inputJson[name] = value;
   }
 
-  //console.log(inputJson);
+  console.log(inputJson);
   //var night = parseInt(inputJson["num"]);
   // var cost = parseInt(inputJson["room"].slice(-3));
   // console.log("The cost for this reservation is " + night * cost);
