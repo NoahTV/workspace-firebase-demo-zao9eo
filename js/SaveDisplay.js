@@ -35,3 +35,10 @@ $(".sampleSurvey input[type='submit']").click(function(e){
   $("form")[0].reset();
 });
 // update the result in table
+firebase.firestore().collection("surveyList").onSnapshot(function(querySnapshot){
+  //console.log(querySnapshot);
+  console.log(querySnapshot.size)
+  querySnapshot.forEach(doc =>{
+    console.log(doc.data())
+  })
+});
