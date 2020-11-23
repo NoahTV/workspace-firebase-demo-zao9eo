@@ -39,6 +39,29 @@ firebase.firestore().collection("surveyList").onSnapshot(function(querySnapshot)
   //console.log(querySnapshot);
   console.log(querySnapshot.size)
   querySnapshot.forEach(doc =>{
-    console.log(doc.data())
+  console.log(doc.data().choice)
+  var dec = doc.data().choice
+  switch (dec) {
+    case "A":
+      var vote = parseInt($('#ans1').text())+1;
+      $('#ans1').text(vote)
+      break;
+    case "B":
+      var vote = parseInt($('#ans2').text())+1;
+      $('#ans2').text(vote)
+      break;
+    case "C":
+      var vote = parseInt($('#ans3').text())+1;
+      $('#ans3').text(vote)
+      break;
+    case "D":
+      var vote = parseInt($('#ans4').text())+1;
+      $('#ans4').text(vote)
+      break;
+    case "E":
+      var vote = parseInt($('#ans3').text())+1;
+      $('#ans5').text(vote)
+      break;
+  } 
   })
 });
