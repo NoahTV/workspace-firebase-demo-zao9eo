@@ -6,14 +6,19 @@ firebase.initializeApp(firebaseConfig);
 
 // save the data
 $(".sampleSurvey input[type='submit']").click(function(e){
-  e.printDefault();
-  var inputdata = $("form").serializeArray();
-  console.log(inputdata);
-  var inputSurvey = {};
-  for (var i = 0; i < inputdata.length; i++) {
-    var choice = inputdata[i]["choice"];
-    var comm = inputdata[i]["comm"];
-    inputSurvey[chioce] = comm;
-  }
+e.preventDefault();
+
+var data = $("form").serializeArray();
+console.log(data);
+
+var inputJson = {};
+for(var i = 0; i < data.length; i++) {
+  var name = data[i] ("comm");
+  var value = data[i] ("value");
+
+  inputJson(name) = value;
+}
+console.log(inputJson)
+
 });
 // update the result in table
