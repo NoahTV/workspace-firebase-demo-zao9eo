@@ -12,15 +12,31 @@ firebase.initializeApp(firebaseConfig);
 
 console.log("Start");
 
-$('#signup-form').submit(function(e){
+$("#signup-form").submit(function(e) {
   e.preventDefault();
-  console.log("Submit");
-  var email = "Noahv.tv@gmail.com"
-  var psw = "password"
-  firbase.auth().createUserWithEmailAndPassword(email,psw).then(user =>{
-    console.log("Success");
-  }).catch(error=>{
-    console.log(error.code);
-    console.log(error.message);
-  })
-})
+  //get the username(email) and password from the form
+  // change the following code
+  var email = "Noahv.tv@gmail.com";
+  var password = "password";
+
+  // create a user with email address and password
+  firebase
+    .auth()
+    .createUserWithEmailAndPassword(email, password)
+    .then(success => {
+      // Signed in
+      // ...
+      
+      console.log("You are signed up");
+      let user = firebase.auth().currentUser;
+
+      user.updateProfile({ displayName: "Noah Vanderhoff" });
+      window.location.href = "Login.html";
+    })
+    .catch(error => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(error.code);
+      console.log(errorMessage);
+    });
+});
